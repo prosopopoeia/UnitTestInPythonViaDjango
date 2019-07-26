@@ -1,0 +1,2 @@
+The command to activate the virtualenv is source virtualenv/Scripts/activate 
+The command to deactivate is just deactivate.
