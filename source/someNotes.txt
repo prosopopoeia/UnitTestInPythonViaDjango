@@ -1,2 +1,9 @@
 The command to activate the virtualenv is source virtualenv/Scripts/activate 
 The command to deactivate is just deactivate.
+
+-----------------------------------
+create Django foundation:
+source/isDjangoThere/add.py
+
+	-creates dir 'lists' containing a number of simple boilerplate files
+----------------------------------	
