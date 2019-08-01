@@ -1,5 +1,14 @@
+create django project
+$ django-admin.py startproject superlists .
+
 The command to activate the virtualenv is source virtualenv/Scripts/activate 
 The command to deactivate is just deactivate.
+
+-----------------------------------
+start server:
+$ python manage.py runserver
+-----------------------------------
+
 
 -----------------------------------
 create Django foundation:
@@ -7,3 +16,16 @@ source/isDjangoThere/add.py
 
 	-creates dir 'lists' containing a number of simple boilerplate files
 ----------------------------------	
+
+
+
+Running the Django dev server
+
+  $  python manage.py runserver
+Running the functional tests
+
+   $ python functional_tests.py
+Running the unit tests
+
+    $ python manage.py test
+
