@@ -21,7 +21,7 @@ class NewVisitorTest(unittest.TestCase):
     
         #title suggests it is a to do list of some manner
         self.assertIn('To-Do', self.browser.title)
-        header_text = self.browser.find_element_by_tag_name('h1').text
+        header_text = self.browser.find_elements_by_tag_name('h1').text
         self.assertIn('To-Do', header_text)
         
         ##s/he is invited to make one, and does so
