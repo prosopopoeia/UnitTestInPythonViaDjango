@@ -21,24 +21,25 @@ class NewVisitorTest(unittest.TestCase):
     
         #title suggests it is a to do list of some manner
         self.assertIn('To-Do', self.browser.title)
-        header_text = self.browser.find_elements_by_tag_name('h1').text
-        self.assertIn('To-Do', header_text)
+        header_text = self.browser.find_element_by_tag_name('h1').text
+        self.assertIn('ta\' da', header_text)
         
         ##s/he is invited to make one, and does so
         inputbox = self.browser.find_element_by_id('id_new_item')
         self.assertEqual(
-            input.get_attribute('placeholder'),
+            inputbox.get_attribute('placeholder'),
             'Enter a to-do item'
         )
         #page updates automatically as items are added
-        inputbox.send_keys('Buy peacock feathers')
-        inputbox.send_keys(Keys.Enter)
+        inputbox.send_keys('Buy Item')
+        inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
         
         table = self.browser.find_element_by_id('id_list_table')
         rows = table.find_elements_by_tag_name('tr')
         self.assertTrue(
-            any(row.test == '1: Buy item' for row in rows)
+            any(row.test == '1: Buy item' for row in rows),
+            "new item did not appear in table"
         )
         
         ##Kippers sees another text box
