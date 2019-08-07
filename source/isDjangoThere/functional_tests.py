@@ -26,24 +26,22 @@ class NewVisitorTest(unittest.TestCase):
         
         ##s/he is invited to make one, and does so
         inputbox = self.browser.find_element_by_id('id_new_item')
-        self.assertEqual(
-            inputbox.get_attribute('placeholder'),
-            'Enter a to-do item'
-        )
-        #page updates automatically as items are added
+        # self.assertEqual(
+            # inputbox.get_attribute('placeholder'),
+            # 'Enter a to-do item'
+        # )
+        
         inputbox.send_keys('Buy Item')
         inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
         
+        #page updates automatically as items are added
         table = self.browser.find_element_by_id('id_list_table')
         rows = table.find_elements_by_tag_name('tr')
-        self.assertTrue(
-            any(row.test == '1: Buy item' for row in rows),
-            "new item did not appear in table"
-        )
-        
+        self.assertIn('1: Buy Item', [row.text for row in rows])
+        elf.assertIn('2: Use Item', [row.text for row in rows])
         ##Kippers sees another text box
-        
+        self.fail('finis')
         ##another update
         
 if __name__== '__main__':
