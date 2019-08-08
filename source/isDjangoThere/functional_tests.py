@@ -21,26 +21,38 @@ class NewVisitorTest(unittest.TestCase):
         #Kip Trimmle heard about some online app that makes lists or something
         #S/he goes to check it out
         self.browser.get('http://localhost:8000')
-        
-        
+                
     
-        #title suggests it is a to do list of some manner
+        #He notices the page title suggests it is a to do list of some manner
         self.assertIn('To-Do', self.browser.title)
         header_text = self.browser.find_element_by_tag_name('h1').text
         self.assertIn('ta\' da', header_text)
         
-        # self.assertEqual(
-        #    inputbox.get_attribute('placeholder'),
-        #    'Enter a to-do item'
-        # )
-        
+        # kip is invited to enter a to-do item
+        inputbox = self.browser.find_element_by_id('id_new_item')
+        self.assertEqual(
+            inputbox.get_attribute('placeholder'),
+            'Enter a to-do item'
+        )
+
+                
+        # he types "Buy Item" into a text box
+        inputbox.send_keys('Buy Item')
+         
         # When she hits enter, the page updates, and now the page lists
         # "1: Buy Item" as an item in a to-do list table
-        inputbox = self.browser.find_element_by_id('id_new_item')
-        inputbox.send_keys('Buy Item')
         inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
+        
         self.check_for_row_in_list_table('1: Buy Item')
+        table = self.browser.find_element_by_id('id_list_table')
+        rows = table.find_elements_by_tag_name('tr')
+        # self.assertTrue(
+            # any(row.text == '1: Buy peacock feathers' for row in rows),
+            # f"New to-do item did not appear in table. Contents were:\n{table.text}"
+        # )
+        
+        
         
         # There is still a text box inviting her to add another item. She
         # enters "Use Item"
