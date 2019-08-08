@@ -4,6 +4,7 @@ from django.http import HttpRequest
 from django.template.loader import render_to_string
 
 from lists.views import home_page
+from lists.models import Item
 
 class HomePageTest(TestCase):
     # def test_root_url_resolves_to_home_page_view(self):
@@ -24,22 +25,33 @@ class HomePageTest(TestCase):
         self.assertIn('A new list item', response.content.decode())
         self.assertTemplateUsed(response, 'home.html')
     
-    
+        ##########the code below is replaced by Django supplied test framework###########
         # request = HttpRequest()
         # response = home_page(request)
         # html = response.content.decode('utf8')
         # expected_html = render_to_string('home.html')
         # self.assertEqual(html, expected_html)
+        ######################################
+        ##self.assertTrue(html.startswith('<html>'))
+        ##self.assertIn('<title>To-Do lists</title>', html)
+        ##self.assertTrue(html.endswith('</html>'))
         
-        
-        
-        
-        
-        
-        
-       ######################################
-##        self.assertTrue(html.startswith('<html>'))
-##        self.assertIn('<title>To-Do lists</title>', html)
-##        self.assertTrue(html.endswith('</html>'))
+class ItemModelTest(TestCase):
 
+    def test_saving_and_retrieving_items(self):
+        first_item = Item()
+        first_item.text = 'The first (ever) list item'
+        first_item.save()
+        
+        second_item = Item.objects.all()
+        self.assertEqual(saved_items.count(), 2)
+        
+        first_save_item = saved_items[0]
+        second_saved_item = saved_items[1]
+        self.assertEqual(first_saved_item.text, 'The first (ever) list item')
+        self.assertEqual(second_saved_item.text, 'Item the second')        
+        
+        
+        
+ 
         

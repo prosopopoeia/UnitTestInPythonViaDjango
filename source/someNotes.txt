@@ -8,7 +8,8 @@ The command to deactivate is just deactivate.
 start server:
 $ python manage.py runserver
 -----------------------------------
-
+to create virtual environment:
+$ py -3.6 -m venv virtualenv
 
 -----------------------------------
 create Django foundation:
@@ -28,4 +29,20 @@ Running the functional tests
 Running the unit tests
 
     $ python manage.py test
+	
+---------------------------------
+geckodriver - need it on system path	
+https://github.com/mozilla/geckodriver/releases
 
+"Proxy for using W3C WebDriver compatible clients to interact with Gecko-based browsers.
+This program provides the HTTP API described by the WebDriver protocol to communicate with Gecko 
+browsers, such as Firefox. It translates calls into the Marionette remote protocol by acting as a 
+proxy between the local- and remote ends."
+
+-------------------I believe the above has Selenium:
+Selenium is an umbrella project for a range of tools and libraries that enable and support the 
+automation of web browsers.
+
+It provides extensions to emulate user interaction with browsers, a distribution server for 
+scaling browser allocation, and the infrastructure for implementations of the W3C WebDriver 
+specification that lets you write interchangeable code for all major web browsers.

@@ -72,6 +72,8 @@ class NewVisitorTest(unittest.TestCase):
         self.fail('finis')
         ##another update
         
+
+        
 if __name__== '__main__':
     unittest.main(warnings='ignore')
 browser.quit()  
