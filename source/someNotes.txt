@@ -1,12 +1,45 @@
 create django project
 $ django-admin.py startproject superlists .
 
+https://docs.djangoproject.com/en/1.11/intro/tutorial01/
+creates:
+mysite/					-[root, container for project]
+    manage.py 			-[cmd line utility - to interact with this django project:https://docs.djangoproject.com/en/1.11/ref/django-admin/ ]
+    mysite/ 			-[actual python package - name is python package name needed to import e.g. mysite.urls]
+        __init__.py		-[tells python this dir is considered a python package: https://docs.python.org/3/tutorial/modules.html#tut-packages ]
+        settings.py		-[settings...]
+        urls.py			-[ a “table of contents” of your Django-powered site:https://docs.djangoproject.com/en/1.11/topics/http/urls/ ]
+        wsgi.py			-[entry-point for WSGI-compatible web servers to serve your project: https://docs.djangoproject.com/en/1.11/howto/deployment/wsgi/ ]
+
 The command to activate the virtualenv is source virtualenv/Scripts/activate 
 The command to deactivate is just deactivate.
 
+
+-----------------------------------
+after the project is created, create the app (a way to structure the code):
+$ python manage.py startapp lists
+creates:
+├── lists
+│   ├── admin.py
+│   ├── apps.py
+│   ├── __init__.py
+│   ├── migrations
+│   │   └── __init__.py
+│   ├── models.py
+│   ├── tests.py
+│   └── views.py
+
+placeholder files for models, views, tests, etc.
 -----------------------------------
 start server:
 $ python manage.py runserver
+$ python manage.py runserver 0:8000 [for a diff port]
+
+
+The development server automatically reloads Python code for each request as needed. 
+You don’t need to restart the server for code changes to take effect. However, some actions like 
+adding files don’t trigger a restart, so you’ll have to restart the server in these cases.
+
 -----------------------------------
 to create virtual environment:
 $ py -3.6 -m venv virtualenv
@@ -46,3 +79,9 @@ automation of web browsers.
 It provides extensions to emulate user interaction with browsers, a distribution server for 
 scaling browser allocation, and the infrastructure for implementations of the W3C WebDriver 
 specification that lets you write interchangeable code for all major web browsers.
+
+--------------------------------------------------------
+----------quick access to .gitignore-------
+$ echo "db.sqlite3" >> .gitignore
+$ echo "geckodriver.log" >> .gitignore
+$ echo "virtualenv" >> .gitignore
