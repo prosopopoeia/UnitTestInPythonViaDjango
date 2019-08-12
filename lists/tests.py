@@ -5,6 +5,10 @@ from django.template.loader import render_to_string
 
 from lists.views import home_page
 from lists.models import Item
+########################################################################################################
+##the Django test runner automatically creates a brand new test database (separate from the real one),##
+##which it can safely reset before each individual test is run, and then throw away at the end.       ##
+########################################################################################################
 
 class HomePageTest(TestCase):
     # def test_root_url_resolves_to_home_page_view(self):
