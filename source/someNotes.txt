@@ -80,6 +80,23 @@ It provides extensions to emulate user interaction with browsers, a distribution
 scaling browser allocation, and the infrastructure for implementations of the W3C WebDriver 
 specification that lets you write interchangeable code for all major web browsers.
 
+----------------------------------------------------------------------
+build Db migration (Db builder -allows to add/remove from table)
+$ python manage.py makemigrations 
+    - tell django there is a change in a model - store them in a 'migration' -i.e. the schema/model
+	- xxxx_initial.py - editable
+	
+	-mrigrate will run migrations & manage the Db schema auto-ically
+vs. $ python manage.py migrate (from docs.djangoproject.com/en/1.11/intro)
+The migrate command takes all the migrations that haven’t been applied (Django tracks which ones are applied using a 
+special table in your database called django_migrations) and runs them against your database - essentially, 
+synchronizing the changes you made to your models with the schema in the database.
+---without running migrate, schema isnt made - actual application of Db.
+
+also: $python manage.py sqlmigrate [app name] [0001] <-Is this guy always 0001?
+
+Note: django includes sqlite by default
+
 --------------------------------------------------------
 ----------quick access to .gitignore-------
 $ echo "db.sqlite3" >> .gitignore

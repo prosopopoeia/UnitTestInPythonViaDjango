@@ -29,7 +29,8 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
+#To include the app in our project, we need to add a reference to its configuration class in the INSTALLED_APPS setting.
+#in this case we added lists
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',

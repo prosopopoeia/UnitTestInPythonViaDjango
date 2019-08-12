@@ -9,14 +9,14 @@ class NewVisitorTest(unittest.TestCase):
     def setUp(self):
         self.browser = webdriver.Firefox()
         
+    def tearDown(self):
+        self.browser.quit()
+        
     def check_for_row_in_list_table(self, row_text):
         table = self.browser.find_element_by_id('id_list_table')
         rows = table.find_elements_by_tag_name('tr')
         self.assertIn(row_text, [row.text for row in rows])
-        
-    def tearDown(self):
-        self.browser.quit()
-        
+                
     def test_can_start_a_list_and_retrieve_it_later(self):
         #Kip Trimmle heard about some online app that makes lists or something
         #S/he goes to check it out
@@ -42,18 +42,10 @@ class NewVisitorTest(unittest.TestCase):
         # When she hits enter, the page updates, and now the page lists
         # "1: Buy Item" as an item in a to-do list table
         inputbox.send_keys(Keys.ENTER)
-        time.sleep(1)
+        time.sleep(1)       
         
-        self.check_for_row_in_list_table('1: Buy Item')
-        table = self.browser.find_element_by_id('id_list_table')
-        rows = table.find_elements_by_tag_name('tr')
-        # self.assertTrue(
-            # any(row.text == '1: Buy peacock feathers' for row in rows),
-            # f"New to-do item did not appear in table. Contents were:\n{table.text}"
-        # )
-        
-        
-        
+       
+                
         # There is still a text box inviting her to add another item. She
         # enters "Use Item"
         inputbox = self.browser.find_element_by_id('id_new_item')
@@ -62,12 +54,10 @@ class NewVisitorTest(unittest.TestCase):
         time.sleep(1)
         
         # The page updates again, and now shows both items on her list
-        self.check_for_row_in_list_table('1: Buy Item')
         self.check_for_row_in_list_table('2: Use Item')
+        self.check_for_row_in_list_table('1: Buy Item')
         
-        # table = self.browser.find_element_by_id('id_list_table')
-        # rows = table.find_elements_by_tag_name('tr')
-        
+                
         ##Kippers wonders if site remembers list - sees another text box
         self.fail('finis')
         ##another update
