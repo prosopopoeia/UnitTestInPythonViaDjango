@@ -4,7 +4,8 @@ from django.http import HttpRequest
 from django.template.loader import render_to_string
 
 from lists.views import home_page
-from lists.models import Item
+from lists.models import Item  ##import ITEM object found in view file -> added code
+
 ########################################################################################################
 ##the Django test runner automatically creates a brand new test database (separate from the real one),##
 ##which it can safely reset before each individual test is run, and then throw away at the end.       ##

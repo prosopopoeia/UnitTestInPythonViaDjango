@@ -1,10 +1,11 @@
+from django.test import LiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
-import unittest
 
 
-class NewVisitorTest(unittest.TestCase):
+
+class NewVisitorTest(LiveServerTestCase):
 
     def setUp(self):
         self.browser = webdriver.Firefox()
@@ -20,7 +21,7 @@ class NewVisitorTest(unittest.TestCase):
     def test_can_start_a_list_and_retrieve_it_later(self):
         #Kip Trimmle heard about some online app that makes lists or something
         #S/he goes to check it out
-        self.browser.get('http://localhost:8000')
+        self.browser.get(self.live_server_url)
                 
     
         #He notices the page title suggests it is a to do list of some manner
@@ -63,10 +64,10 @@ class NewVisitorTest(unittest.TestCase):
         ##another update
         
 
-        
-if __name__== '__main__':
-    unittest.main(warnings='ignore')
-browser.quit()  
+###below code can be used to execute functional tests - commented out because Django is handling it
+# if __name__== '__main__':
+    # unittest.main(warnings='ignore')
+# browser.quit()  
     
 
 #at the end s/he gets a generated page w/ a unique id
