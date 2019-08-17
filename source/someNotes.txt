@@ -1,3 +1,5 @@
+http://www.obeythetestinggoat.com/
+
 create django project
 $ django-admin.py startproject superlists .
 
