@@ -31,7 +31,7 @@ class NewVisitorTest(LiveServerTestCase):
         # rows = table.find_elements_by_tag_name('tr')
         # self.assertIn(row_text, [row.text for row in rows])
                 
-    def test_can_start_a_list_and_retrieve_it_later(self):
+    def test_can_start_a_list_for_one_user(self):
         #Kip Trimmle heard about some online app that makes lists or something
         #S/he goes to check it out
         self.browser.get(self.live_server_url)                
@@ -86,6 +86,7 @@ class NewVisitorTest(LiveServerTestCase):
         self.browser = webdriver.Firefox()
         
         # The Count visits the home page, no sign of Kips listself.browser.get(slf.live_server_url)
+        self.browser.get(self.live_server_url)
         page_text = self.browser.find_element_by_tag_name('body').text
         self.assertNotIn('Buy Item', page_text)
         self.assertNotIn('make a fly', page_text)
