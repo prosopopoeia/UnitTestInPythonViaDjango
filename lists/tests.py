@@ -40,6 +40,9 @@ class HomePageTest(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertEqual(response['location'], '/lists/the-only-list-in-the-world/')
         
+        
+        
+        
     # def test_displays_all_list_items(self):
         # Item.objects.create(text='itemey 1')
         # Item.objects.create(text='itemey 2')
