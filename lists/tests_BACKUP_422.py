@@ -27,7 +27,7 @@ class HomePageTest(TestCase):
     def test_uses_home_template(self):
         response = self.client.get('/')
         self.assertTemplateUsed(response, 'home.html')
-
+<<<<<<< HEAD
         
     def test_can_save_POST_request(self):
         response = self.client.post('/', data={'item_text': 'A new list item'})
@@ -43,11 +43,11 @@ class HomePageTest(TestCase):
         
         
         
-
         
+=======
                 
             
-
+>>>>>>> DraculaBranch
     # def test_displays_all_list_items(self):
         # Item.objects.create(text='itemey 1')
         # Item.objects.create(text='itemey 2')
