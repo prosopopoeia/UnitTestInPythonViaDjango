@@ -39,7 +39,7 @@ class NewVisitorTest(LiveServerTestCase):
         #He notices the page title suggests it is a to do list of some manner
         self.assertIn('To-Do', self.browser.title)
         header_text = self.browser.find_element_by_tag_name('h1').text
-        self.assertIn('ta\' da', header_text)
+        self.assertIn('todo', header_text)
         
         # kip is invited to enter a to-do item
         inputbox = self.browser.find_element_by_id('id_new_item')
@@ -85,14 +85,14 @@ class NewVisitorTest(LiveServerTestCase):
         self.browser.quit()
         self.browser = webdriver.Firefox()
         
-        # The Count visits the home page, no sign of Kips listself.browser.get(slf.live_server_url)
+        # The Count visits the home page, no sign of Kips list
         self.browser.get(self.live_server_url)
         page_text = self.browser.find_element_by_tag_name('body').text
         self.assertNotIn('Buy Item', page_text)
-        self.assertNotIn('make a fly', page_text)
+        self.assertNotIn('make', page_text)
         
         # The Count starts a new list by entering a new item. He is 
-        #less interenthing
+        #less...
         inputbox = self.browser.find_element_by_id('id_new_item')
         inputbox.send_keys('Buy Blood')
         inputbox.send_keys(Keys.ENTER)
@@ -103,6 +103,9 @@ class NewVisitorTest(LiveServerTestCase):
         self.assertRegex(dracula_list_url, '/lists/.+')
         self.assertNotEqual(dracula_list_url, kip_list_url)
         
+        pasge_text = self.browser.find_element_by_tag_name('body').text
+        self.assertNotIn('Buy Blood', page_text)
+        self.assertIn('Buy Blood')
         ##Kippers wonders if site remembers list - sees another text box
         ##self.fail('finis')
         ##another update        
