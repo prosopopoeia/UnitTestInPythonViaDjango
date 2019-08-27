@@ -104,3 +104,15 @@ Note: django includes sqlite by default
 $ echo "db.sqlite3" >> .gitignore
 $ echo "geckodriver.log" >> .gitignore
 $ echo "virtualenv" >> .gitignore
+
+
+
+
+
+
+
+
+ists/tests.py (ch07l031)
+
+
+
