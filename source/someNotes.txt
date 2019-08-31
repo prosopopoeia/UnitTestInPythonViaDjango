@@ -13,6 +13,7 @@ mysite/					-[root, container for project]
         urls.py			-[ a “table of contents” of your Django-powered site:https://docs.djangoproject.com/en/1.11/topics/http/urls/ ]
         wsgi.py			-[entry-point for WSGI-compatible web servers to serve your project: https://docs.djangoproject.com/en/1.11/howto/deployment/wsgi/ ]
 
+
 The command to activate the virtualenv is source virtualenv/Scripts/activate 
 The command to deactivate is just deactivate.
 
@@ -45,7 +46,7 @@ adding files don’t trigger a restart, so you’ll have to restart the server i
 -----------------------------------
 to create virtual environment:
 $ py -3.6 -m venv virtualenv
-
+-creates 'partitioned' environment 
 -----------------------------------
 create Django foundation:
 source/isDjangoThere/add.py

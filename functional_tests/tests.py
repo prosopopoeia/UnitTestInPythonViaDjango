@@ -103,9 +103,10 @@ class NewVisitorTest(LiveServerTestCase):
         self.assertRegex(dracula_list_url, '/lists/.+')
         self.assertNotEqual(dracula_list_url, kip_list_url)
         
-        pasge_text = self.browser.find_element_by_tag_name('body').text
-        self.assertNotIn('Buy Blood', page_text)
-        self.assertIn('Buy Blood')
+        #no trace of Kip's list
+        page_text = self.browser.find_element_by_tag_name('body').text
+        self.assertNotIn('Buy now', page_text)
+        self.assertIn('Buy Blood', page_text)
         ##Kippers wonders if site remembers list - sees another text box
         ##self.fail('finis')
         ##another update        
